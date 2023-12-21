@@ -27,6 +27,6 @@ jobs:
     - name: Setup Node.js environment
       uses: actions/setup-node@v1.4.4
     - name: Generate genesis file
-      run: bash generate.sh 15001 heimdall-15001
+      run: bash generate.sh 1370 heimdall-1370
     - name: Run tests
       run: npm run test:ci

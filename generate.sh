@@ -17,14 +17,14 @@ if [ -z "$2" ]
   exit 1
 fi
 
-npm install
-npm run truffle:compile
+bun i
+bun run truffle:compile
 git submodule init
 git submodule update
-cd matic-contracts
-npm install
+cd rama-contracts
+bun i
 node scripts/process-templates.js --bor-chain-id $1
-npm run truffle:compile
+bun run truffle:compile
 cd ..
 node generate-borvalidatorset.js --bor-chain-id $1 --heimdall-chain-id $2
 npm run truffle:compile

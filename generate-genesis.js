@@ -78,11 +78,11 @@ Promise.all([
   ),
   compileContract(
     "maticChildERC20Contract",
-    "matic-contracts/contracts/child/MRC20.sol",
+    "rama-contracts/contracts/child/MRC20.sol",
     "MRC20"
   )
 ]).then(result => {
-  const totalMaticSupply = web3.utils.toBN("1000000000")
+  const totalRamaSupply = web3.utils.toBN("1000000000")
 
   var validatorsBalance = web3.utils.toBN(0)
   validators.forEach(v => {
@@ -90,7 +90,7 @@ Promise.all([
     v.balance = web3.utils.toHex(web3.utils.toWei(String(v.balance)))
   })
 
-  const contractBalance = totalMaticSupply.sub(validatorsBalance)
+  const contractBalance = totalRamaSupply.sub(validatorsBalance)
   const data = {
     chainId: program.borChainId,
     validators: validators,
